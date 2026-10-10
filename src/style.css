@@ -1,0 +1,37 @@
+.geocompare { --gc-ink: #243830; --gc-accent: #285f4b; position: relative; width: 100%; height: 100%; min-height: 320px; overflow: hidden; background: #dce5e0; color: var(--gc-ink); font: 13px/1.4 ui-sans-serif, system-ui, sans-serif; }
+.geocompare * { box-sizing: border-box; }
+.geocompare-map { position: absolute; inset: 0; }
+.geocompare--side-by-side .geocompare-map--before { right: 50%; }
+.geocompare--side-by-side .geocompare-map--after { left: 50%; }
+.geocompare-toolbar { position: absolute; z-index: 5; top: 16px; left: 50%; display: flex; gap: 2px; transform: translateX(-50%); padding: 4px; border: 1px solid #ffffffb5; border-radius: 10px; background: #fffffff2; box-shadow: 0 7px 24px #1c382a30; backdrop-filter: blur(10px); white-space: nowrap; }
+.geocompare-toolbar button { min-height: 34px; padding: 7px 14px; border: 0; border-radius: 7px; background: transparent; color: #53665a; font-family: inherit; font-size: 12px; font-weight: 650; line-height: 1.2; cursor: pointer; transition: background .15s, color .15s; }
+.geocompare-toolbar button:hover:not([aria-pressed="true"]) { background: #edf2ec; color: var(--gc-ink); }
+.geocompare-toolbar button[aria-pressed="true"] { background: var(--gc-accent); color: #fff; box-shadow: 0 2px 6px #18392c31; }
+.geocompare-toolbar button:focus-visible { outline: 3px solid #b9d9c1; outline-offset: 2px; }
+.geocompare-label { position: absolute; z-index: 3; top: 76px; max-width: min(260px, 42%); pointer-events: none; }
+.geocompare-label--before { left: 16px; }
+.geocompare-label--after { right: 16px; text-align: right; }
+.geocompare-metadata { display: flex; flex-direction: column; gap: 4px; padding: 13px 15px; border: 1px solid #ffffffbd; border-radius: 10px; background: #fffffff0; box-shadow: 0 6px 20px #1c382a24; backdrop-filter: blur(10px); }
+.geocompare-metadata::before { content: "EARLIER"; display: block; margin-bottom: 3px; color: #3d7458; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
+.geocompare-label--after .geocompare-metadata::before { content: "LATER"; }
+.geocompare-metadata strong { font-size: 16px; line-height: 1.12; letter-spacing: -.035em; }
+.geocompare-metadata span { color: #68766c; font-size: 10px; line-height: 1.35; }
+.geocompare-metadata span:first-of-type { color: #345844; font-weight: 700; }
+.geocompare-divider { position: absolute; z-index: 4; top: 0; bottom: 0; width: 28px; transform: translateX(-50%); cursor: ew-resize; touch-action: none; }
+.geocompare-divider::before { content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% - 1px); width: 2px; background: #fff; box-shadow: 0 0 0 1px #2342314d, 0 0 12px #142b2170; }
+.geocompare-divider span { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 42px; height: 42px; transform: translate(-50%, -50%); border: 3px solid #fff; border-radius: 50%; background: var(--gc-accent); color: #fff; font-size: 20px; box-shadow: 0 5px 18px #193c2b66; }
+.geocompare-divider:focus-visible { outline: 3px solid #b9d9c1; outline-offset: 3px; }
+.geocompare-legends { position: absolute; z-index: 3; left: 16px; bottom: 16px; display: flex; gap: 8px; max-width: calc(100% - 32px); flex-wrap: wrap; pointer-events: none; }
+.geocompare-legend { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border: 1px solid #ffffffb5; border-radius: 9px; background: #fffffff0; box-shadow: 0 5px 18px #1c382a20; backdrop-filter: blur(10px); }
+.geocompare-legend-stops { display: flex; gap: 9px; }
+.geocompare-legend-stops span { display: flex; align-items: center; gap: 4px; white-space: nowrap; font-size: 11px; }
+.geocompare-legend-stops i { width: 10px; height: 10px; border-radius: 2px; }
+.geocompare-status { position: absolute; z-index: 6; right: 16px; bottom: 36px; padding: 9px 12px; border: 1px solid #ffffffb5; border-radius: 8px; background: #fffffff0; box-shadow: 0 5px 18px #1c382a29; backdrop-filter: blur(10px); }
+.geocompare-status--error { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; max-width: min(360px, calc(100% - 32px)); color: #9b3030; }
+.geocompare-status-message { flex: 1 1 170px; font-weight: 700; }
+.geocompare-status--error button { flex: none; padding: 6px 9px; border: 1px solid #dcbeb7; border-radius: 6px; background: #fff; color: #813b31; font-family: inherit; font-size: 11px; font-weight: 700; line-height: 1.2; cursor: pointer; }
+.geocompare-status--error details { flex: 1 0 100%; color: #786159; font-size: 10px; }
+.geocompare-status--error summary { cursor: pointer; }
+.geocompare-status--error details span { display: block; max-height: 90px; margin-top: 5px; overflow: auto; overflow-wrap: anywhere; }
+.geocompare-status--error button:focus-visible, .geocompare-status--error summary:focus-visible { outline: 3px solid #f5c99a; outline-offset: 2px; }
+@media (max-width: 600px) { .geocompare--side-by-side .geocompare-map--before { right: 0; bottom: 50%; } .geocompare--side-by-side .geocompare-map--after { left: 0; top: 50%; } .geocompare-label { top: 68px; max-width: 44%; } .geocompare-label--before { left: 10px; } .geocompare-label--after { right: 10px; } .geocompare--side-by-side .geocompare-label--after { top: calc(50% + 12px); } .geocompare-metadata { padding: 9px 10px; } .geocompare-metadata strong { font-size: 13px; } .geocompare-metadata span { font-size: 9px; } .geocompare-legends { display: none; } .geocompare-status { right: 10px; bottom: 35px; } }
